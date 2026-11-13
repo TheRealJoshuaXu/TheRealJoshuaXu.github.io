@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Joshua Xu | Electrical Engineer</title>
+  <meta name="description" content="Joshua Xu, UBC Electrical Engineering graduate focused on semiconductor test, validation and analog hardware.">
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --paper: #ffffff;
+      --ink: #1b1f24;
+      --muted: #5f6670;
+      --faint: #8a9099;
+      --rule: #e2e3e0;
+      --accent: #1f3a5f;
+      --accent-ink: #ffffff;
+      --link: #1f4f8a;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0f1217;
+        --paper: #151a21;
+        --ink: #e6e8eb;
+        --muted: #a3aab4;
+        --faint: #7d8590;
+        --rule: #262c35;
+        --accent: #8fb3e6;
+        --accent-ink: #0f1217;
+        --link: #9dbdf0;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0f1217;
+      --paper: #151a21;
+      --ink: #e6e8eb;
+      --muted: #a3aab4;
+      --faint: #7d8590;
+      --rule: #262c35;
+      --accent: #8fb3e6;
+      --accent-ink: #0f1217;
+      --link: #9dbdf0;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .serif { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif; }
+
+    .page {
+      max-width: 920px;
+      margin: 40px auto;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+
+    /* Masthead */
+    .masthead {
+      padding: 48px 56px 36px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+    .masthead h1 {
+      margin: 0;
+      font-size: clamp(34px, 5.5vw, 46px);
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+    .masthead .title {
+      margin: 10px 0 0;
+      font-size: 17px;
+      color: var(--muted);
+    }
+    .contact {
+      margin-top: 22px;
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 6px 18px;
+      font-size: 15px;
+    }
+    .contact a { color: var(--ink); }
+    .contact .sep { color: var(--rule); }
+    .resume-btn {
+      display: inline-block;
+      background: var(--accent); color: var(--accent-ink) !important;
+      padding: 7px 16px; border-radius: 3px; font-weight: 600; font-size: 14px;
+      letter-spacing: .2px;
+    }
+    .resume-btn:hover { text-decoration: none; opacity: .92; }
+    .theme-btn {
+      position: absolute; top: 20px; right: 20px;
+      background: none; border: 1px solid var(--rule); color: var(--faint);
+      border-radius: 3px; padding: 4px 10px; font-size: 12px; cursor: pointer;
+      letter-spacing: .4px; text-transform: uppercase;
+    }
+    .theme-btn:hover { color: var(--ink); }
+
+    /* Sections: label column + content column */
+    section {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 0 32px;
+      padding: 34px 56px;
+      border-bottom: 1px solid var(--rule);
+    }
+    section:last-of-type { border-bottom: none; }
+    section > h2 {
+      margin: 3px 0 0;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 1.6px; text-transform: uppercase;
+      color: var(--accent);
+    }
+    section p { margin: 0 0 12px; }
+    section p:last-child { margin-bottom: 0; }
+
+    .entry { margin-bottom: 26px; }
+    .entry:last-child { margin-bottom: 0; }
+    .entry-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      gap: 4px 16px; flex-wrap: wrap;
+    }
+    .entry h3 { margin: 0; font-size: 17px; font-weight: 600; }
+    .entry .when { font-size: 14px; color: var(--faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
+    .entry .org { color: var(--muted); font-size: 15px; margin-top: 1px; }
+    .entry ul { margin: 10px 0 0; padding-left: 18px; }
+    .entry li { margin-bottom: 5px; }
+    .entry li::marker { color: var(--faint); }
+    .entry .desc { margin: 8px 0 0; }
+    .entry .foot {
+      margin-top: 8px; font-size: 13.5px; color: var(--faint);
+      display: flex; flex-wrap: wrap; gap: 4px 14px;
+    }
+    .entry .foot a { font-weight: 500; }
+
+    .skills { display: grid; grid-template-columns: 150px 1fr; gap: 6px 16px; font-size: 15px; }
+    .skills dt { color: var(--muted); }
+    .skills dd { margin: 0; }
+
+    footer {
+      max-width: 920px; margin: 0 auto 48px; padding: 0 8px;
+      color: var(--faint); font-size: 13px; text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .page { margin: 0; border: none; border-radius: 0; }
+      .masthead { padding: 40px 20px 28px; }
+      section { grid-template-columns: 1fr; padding: 28px 20px; }
+      section > h2 { margin-bottom: 14px; }
+      .skills { grid-template-columns: 1fr; gap: 0; }
+      .skills dd { margin-bottom: 8px; }
+      footer { margin-top: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">Theme</button>
+      <h1 class="serif">Joshua Xu</h1>
+      <p class="title">Electrical Engineer &middot; Semiconductor test, validation and analog hardware</p>
+      <div class="contact">
+        <a class="resume-btn" href="resume.pdf">Resume (PDF)</a>
+        <a href="mailto:joshua.x3456@gmail.com">joshua.x3456@gmail.com</a>
+        <span class="sep">|</span>
+        <a href="https://linkedin.com/in/joshuaxuubc/">LinkedIn</a>
+        <span class="sep">|</span>
+        <a href="https://github.com/TheRealJoshuaXu/Projects">Project Portfolio</a>
+        <span class="sep">|</span>
+        <span>Richmond, BC</span>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <div>
+        <p>I graduated from the University of British Columbia in May 2026 with a BASc in Electrical Engineering (First Class Honours). I do my best work when a measurement doesn't match what I expected and I have to find out why, whether that's a failed test, a board that won't regulate, or a thin film that comes out the wrong thickness.</p>
+        <p>I currently work in quality assurance at an aerospace manufacturer, investigating failures to root cause and supporting first article inspection. Before that I interned at EnerSys (Alpha Technologies), qualifying production test equipment and analyzing field returns of telecom power systems. I'm building toward a career in semiconductors: test, validation, characterization and analog/mixed-signal design.</p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Quality Assurance Technician</h3>
+            <span class="when">May 2026 &ndash; Present</span>
+          </div>
+          <div class="org">International Water-Guard Industries &middot; Surrey, BC</div>
+          <ul>
+            <li>Investigate failures to root cause and write the technical basis for Material Review Board decisions in an AS9100 quality system.</li>
+            <li>Supported correction of 50+ errors in inherited first article inspection records so a major aerospace customer accepted two products at source inspection; on my own initiative, used AI to cut a week of cross-checking to hours.</li>
+            <li>Trained a new team member on inspection and nonconformance procedures to full independence.</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Advanced Quality Engineer Intern</h3>
+            <span class="when">Sep 2024 &ndash; Aug 2025</span>
+          </div>
+          <div class="org">EnerSys (Alpha Technologies) &middot; Burnaby, BC</div>
+          <ul>
+            <li>Qualified a production test station for a 5 kW rectifier module across 30 parameters and traced its failures to a wrongly set test limit, releasing it to the contract manufacturer.</li>
+            <li>Analyzed field returns by failure mode, led a teardown of a third-party power module, and caught a solder mask shorting risk in design reviews.</li>
+            <li>Wrote the measurement system analysis training module for technicians at two sites.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Marine Energy Harvester</h3>
+            <span class="when">2025 &ndash; 2026</span>
+          </div>
+          <div class="org">UBC Capstone, team of 5</div>
+          <p class="desc">Power stage for an underwater acoustic energy harvester supporting research for NATO's Project SHIELD. I owned the BQ25570 boost/buck stage from part selection and Altium layout to bench bring-up and the validation plan.</p>
+          <div class="foot"><span>Power electronics &middot; Altium &middot; Python</span><a href="https://github.com/TheRealJoshuaXu/Projects/tree/main/marine-energy-harvester">Details &rarr;</a></div>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>45 nm CMOS RF and Analog Blocks</h3>
+            <span class="when">2025 &ndash; 2026</span>
+          </div>
+          <div class="org">Analog CMOS IC Design</div>
+          <p class="desc">A 5.25 GHz cascode LNA, an LC VCO and a two-stage op-amp, designed and simulated at schematic level in Cadence Virtuoso and Spectre.</p>
+          <div class="foot"><span>RF &middot; Analog IC design &middot; Cadence</span><a href="https://github.com/TheRealJoshuaXu/Projects/tree/main/cmos-rf-analog">Details &rarr;</a></div>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Thin-Film Microheater and RTD</h3>
+            <span class="when">2026</span>
+          </div>
+          <div class="org">UBC Cleanroom</div>
+          <p class="desc">Fabricated a nickel-chromium heater with an integrated RTD using photolithography, evaporation with lift-off, PECVD nitride and wet etch, then characterized it and explained where it differed from prediction.</p>
+          <div class="foot"><span>Microfabrication &middot; Characterization</span><a href="https://github.com/TheRealJoshuaXu/Projects/tree/main/microheater-rtd">Details &rarr;</a></div>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Reflow Oven Controller</h3>
+            <span class="when">ELEC 291</span>
+          </div>
+          <p class="desc">An 8051-based controller running a full reflow profile, with a thermocouple front end (OP07, MCP3008 ADC over SPI) and a Python strip chart of the readings.</p>
+          <div class="foot"><span>8051 assembly &middot; Embedded</span><a href="https://github.com/TheRealJoshuaXu/Projects/tree/main/reflow-oven-controller">Details &rarr;</a></div>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Magnetic-Field-Controlled Robot</h3>
+            <span class="when">ELEC 291</span>
+          </div>
+          <p class="desc">A robot steered by frequency-coded magnetic commands: C firmware on EFM8 and PIC32, an H-bridge driving an LC tank, and a pickup-coil receiver that worked up to 130 cm.</p>
+          <div class="foot"><span>C &middot; Embedded &middot; Analog</span><a href="https://github.com/TheRealJoshuaXu/Projects/tree/main/magnetic-field-robot">Details &rarr;</a></div>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>Automated Laser Display Robot</h3>
+            <span class="when">ELEC 391</span>
+          </div>
+          <div class="org">Team of 5</div>
+          <p class="desc">My part was the encoder feedback and debugging the PID position loop, including a minimum drive fix so small corrections could move the geared axis.</p>
+          <div class="foot"><span>Controls &middot; Firmware</span><a href="https://github.com/TheRealJoshuaXu/Projects/tree/main/laser-robot-motion-board">Details &rarr;</a></div>
+        </div>
+        <div class="entry">
+          <div class="entry-head">
+            <h3>SPC Analysis Toolkit</h3>
+            <span class="when">2026</span>
+          </div>
+          <div class="org">Personal project</div>
+          <p class="desc">Designed and validated nine Python tools for statistical process control, capability and DOE, coded with Claude Code and tested against data with faults planted at known values.</p>
+          <div class="foot"><span>Python &middot; SPC</span><a href="https://github.com/TheRealJoshuaXu/Projects/tree/main/spc-toolkit">Details &rarr;</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Design &amp; simulation</dt><dd>Cadence Virtuoso/Spectre, LTspice, Altium Designer</dd>
+        <dt>Lab &amp; test</dt><dd>Oscilloscope, DC power analyzer, logic analyzer, multimeter, LCR meter, four-point probe</dd>
+        <dt>Software &amp; data</dt><dd>Python, MATLAB, C, Minitab</dd>
+        <dt>Quality methods</dt><dd>SPC, Cpk, MSA/Gage R&amp;R, root cause analysis, FAI, IPC-A-610</dd>
+      </dl>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <h3>University of British Columbia</h3>
+          <span class="when">May 2026</span>
+        </div>
+        <div class="org">BASc Electrical Engineering, First Class Honours</div>
+      </div>
+    </section>
+
+    <section id="interests">
+      <h2>Interests</h2>
+      <p>Badminton, piano, reading and video games.</p>
+    </section>
+  </div>
+
+  <footer>&copy; 2026 Joshua Xu</footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+      } catch (e) {}
+      document.getElementById('themeBtn').addEventListener('click', function () {
+        var current = root.getAttribute('data-theme') ||
+          (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        var next = current === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+</html>
